@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Format 
+        run: go fmt ./...
+        
       - name: Check out code
         uses: actions/checkout@v6
 
