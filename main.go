@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -91,8 +90,8 @@ func main() {
 	router.Mount("/v1", v1Router)
 	// Potential Slowloris Attack because ReadHeaderTimeout is not configured in the http.Server
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:              ":" + port,
+		Handler:           router,
 		ReadHeaderTimeout: 0,
 	}
 
